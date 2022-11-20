@@ -3,15 +3,15 @@ BEGIN
     twob big_num                            #missing semicolon
     small_num = 0;
     Big_num = 65530;                        #undeclared variable name: Big_num
-    twob sum = big_num + small_num          #undeclared variable name: big_num
+    twob sum = big_num + small_num;         #undeclared variable name: big_num
     oneb counter;
     counter = 0;
     repeatif (small_num < big_num) {        
-        small_num = (small_num * 2          #missing closing parentheses
-        big_num = big_num / 2
-        counter = counter + 1
+        small_num = (small_num * 2;         #missing closing parentheses
+        big_num = big_num / 2;
+        counter = counter + 1;
     }
     iffy (counter < 10)                     #missing open curly brace
-        counter = counter * 100
+        counter = counter * 100;
     }                                     
 END 

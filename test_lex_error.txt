@@ -10,7 +10,7 @@ BEGIN
         }
 
         iffy (thisissum <= 100) {     #unindentified comparision operation '!=' -> '|='
-            thisissum = thisissum + 1num
+            thisissum = thisissum + 1num;
         }
     }
 END 

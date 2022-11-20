@@ -18,3 +18,16 @@
 <comp_operator> LESS, LESSEQ, GREATER, GREATEREQ, EQUAL, NOTEQ
 
 <repeatif> -> repeatif <bool_expr> { <stmt> } 
+
+
+###Pairwise Disjointness Test:
+FIRST (PROGRAM) - BEGIN
+FIRST (STMT_LIST) - {oneb, twob, fob, ateb}, cond, identifier, repeatif
+FIRST (STMT) - {oneb, twob, fob, ateb}, cond, identifier, repeatif, iffy
+FIRST (DECLARATION) - {oneb, twob, fob, ateb}
+FIRST (COND_STMT) - {literal, identifier}
+FIRST (REPEATIF) - {literal, identifier}
+FIRST (ASSIGNMENT) - (, literal, identifier
+FIRST (EXPR) - (, literal, identifier
+FIRST (TERM) - (, literal, identifier
+FIRST (FACTOR) - (

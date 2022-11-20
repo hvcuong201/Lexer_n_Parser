@@ -35,11 +35,11 @@ IDENTIFIER  = 'IDENTIFIER'
 ## keywords
 KEYWORD     = 'KEYWORD'
 
-KEYWORDS    = ['iffy', 'ew', 'repeatif', 'BEGIN', 'END', 'tru', 'fall', 'and', 'or', 'not']
+KEYWORDS    = ['iffy', 'ew', 'repeatif', 'BEGIN', 'END', 'and', 'or', 'not']
 #               if,     else, while loop
 DATATYPES    = ['oneb', 'twob', 'fob', 'ateb']
 #               1byte,  2bytes, 4bytes  8bytes
-identifier_pattern = "^[A-Za-z_]*$"
+identifier_pattern = "^[A-Za-z_]{6,8}$"
 
 
 class Token:
@@ -534,7 +534,7 @@ class Interpreter:
         return number
 
 if __name__ == "__main__":
-    '''
+    
     text_file = open("test_no_error_2.txt", "r")
     #read whole file to a string
     data = text_file.read()
@@ -545,8 +545,8 @@ if __name__ == "__main__":
     tokens = lexer.tokenize()
     print(tokens)
     print(len(tokens)) 
-    '''
     
+    """
     math = '5 > 5'
     lexer = LexicalAnalyzer(math)
     tokens = lexer.tokenize()
@@ -559,4 +559,5 @@ if __name__ == "__main__":
     inter = Interpreter()
     result = inter.visit(syntax_tree)
     print(symbol_table)
+    """
     

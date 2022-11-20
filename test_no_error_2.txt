@@ -6,8 +6,8 @@ BEGIN
     oneb counter;
     counter = 0;
     repeatif (sm_num < big_num) {
-        sm_num = sm_num * 2
-        big_num = big_num / 2
-        counter = counter + 1
+        sm_num = sm_num * 2;
+        big_num = big_num / 2;
+        counter = counter + 1;
     }
 END 
