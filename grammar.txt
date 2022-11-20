@@ -1,0 +1,20 @@
+<program> -> BEGIN <stmt_list> END
+
+<stmt_list> -> <stmt>
+
+<stmt> -> <declaration> | <assignment> | <cond_stmt> | <repeatif>
+
+<declaration> - <type> identifier;
+<type> - oneb | twob | fob | ateb
+
+<assignment> - identifier ASSIGN <expr>;
+<expr> - <term> ((PLUS|MINUS) <term>)*
+<term> - <factor> ((MUL|DIV|MOD) <factor>)*
+<factor> - (<expr>) | literal | identifier
+
+<cond_stmt> -> iffy <bool_expr> { <stmt> } ew { <stmt> }
+<bool_expr> -> <value> <comp_operator> <value>
+<value> -> literal | identifier
+<comp_operator> LESS, LESSEQ, GREATER, GREATEREQ, EQUAL, NOTEQ
+
+<repeatif> -> repeatif <bool_expr> { <stmt> } 
