@@ -546,8 +546,8 @@ if __name__ == "__main__":
     print(tokens)
     print(len(tokens)) 
     
-    """
-    math = '5 > 5'
+    
+    math = 'ateb big_num;'
     lexer = LexicalAnalyzer(math)
     tokens = lexer.tokenize()
     parser = Parser(tokens)
@@ -559,5 +559,5 @@ if __name__ == "__main__":
     inter = Interpreter()
     result = inter.visit(syntax_tree)
     print(symbol_table)
-    """
+    
     

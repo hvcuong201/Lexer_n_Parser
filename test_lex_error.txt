@@ -1,15 +1,15 @@
 BEGIN
-    oneb 1num;                  #invalid identifier '1num'
+    oneb 1num;                          #invalid identifier '1num'
     1num = 10;
-    oneb thisissum;             #variable name exceed the length limit 
-    repeatif (1num ==# 0) {     #unindentified special character '#'  
+    oneb thisissum;                     #variable name exceed the length limit 
+    repeatif (1num ==# 0) {             #unindentified special character '#'  
         iffy (1num > 5) {        
-            1num = 1num - 2.    #unindentified punctuation '.'
+            1num = 1num - 2.            #unindentified punctuation '.'
         } ew {
-            1num = 1num @ 1;    #unindentified operation '@'
+            1num = 1num @ 1;            #unindentified operation '@'
         }
 
-        iffy (thisissum <= 100) {     #unindentified comparision operation '!=' -> '|='
+        iffy (thisissum <= 100) {       #unindentified comparision operation '!=' -> '|='
             thisissum = thisissum + 1num;
         }
     }
