@@ -535,7 +535,7 @@ class Interpreter:
 
 if __name__ == "__main__":
     
-    text_file = open("test_no_error_2.txt", "r")
+    text_file = open("test_no_error_1.txt", "r")
     #read whole file to a string
     data = text_file.read()
     #close file
