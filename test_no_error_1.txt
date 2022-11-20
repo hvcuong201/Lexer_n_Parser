@@ -1,0 +1,11 @@
+BEGIN
+    oneb num;
+    num = 257; 
+    repeatif (num == 0) {
+        iffy (num > 5) {
+            num = num - 2;
+        } ew {
+            num = num - 1;
+        }
+    }
+END 

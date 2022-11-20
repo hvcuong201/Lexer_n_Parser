@@ -1,0 +1,13 @@
+BEGIN
+    twob sm_num;
+    twob big_num;
+    sm_num = 0;
+    big_num = 65530; 
+    oneb counter;
+    counter = 0;
+    repeatif (sm_num < big_num) {
+        sm_num = sm_num * 2
+        big_num = big_num / 2
+        counter = counter + 1
+    }
+END 
