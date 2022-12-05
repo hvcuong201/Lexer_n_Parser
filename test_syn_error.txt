@@ -1,17 +1,18 @@
 BEGIN
     twob small_num; 
-    twob big_num                            #missing semicolon
+    twob big_num                            
     small_num = 0;
-    Big_num = 65530;                        #undeclared variable name: Big_num
-    twob sum = big_num + small_num;         #undeclared variable name: big_num
+    Big_num = 65530;                        
+    twob sum;
+    sum = big_num + small_num;         
     oneb counter;
     counter = 0;
     repeatif (small_num < big_num) {        
-        small_num = (small_num * 2;         #missing closing parentheses
+        small_num = ((small_num * 2;         
         big_num = big_num / 2;
         counter = counter + 1;
     }
-    iffy (counter < 10)                     #missing open curly brace
+    iffy (counter < 10)                    
         counter = counter * 100;
     }                                     
 END 
