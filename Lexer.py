@@ -158,6 +158,9 @@ class Lexer:
             elif self.current_char == '/':
                 tokens.append(Token(DIV))
                 self.advance()
+            elif self.current_char == '%':
+                tokens.append(Token(MOD))
+                self.advance()
             elif self.current_char == '(':
                 tokens.append(Token(LPAREN))
                 self.advance()
