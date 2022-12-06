@@ -1,12 +1,12 @@
 BEGIN
     twob small_num; 
     twob big_num                            
-    small_num = 0;
-    Big_num = 65530;                        
+    small_num = 0.o;
+    Big_num = 630.a;                        
     twob sum;
     sum = big_num + small_num;         
     oneb counter;
-    counter = 0;
+    counter = 0.o;
     repeatif (small_num < big_num) {        
         small_num = ((small_num * 2;         
         big_num = big_num / 2;

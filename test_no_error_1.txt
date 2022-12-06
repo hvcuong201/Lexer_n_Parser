@@ -1,6 +1,6 @@
 BEGIN
     oneb num_num;
-    num_num = 257; 
+    num_num = 247.o; 
     repeatif (num_num == 0) {
         iffy (num_num > 5) {
             num_num = num_num - 2;

@@ -1,10 +1,10 @@
 BEGIN
     twob sm_num;
     twob big_num;
-    sm_num = 0;
-    big_num = 65530; 
+    sm_num = 0.t;
+    big_num = 65530.t; 
     oneb counter;
-    counter = 0;
+    counter = 0.o;
     repeatif (sm_num < big_num) {
         sm_num = sm_num * 2;
         big_num = big_num / 2;
