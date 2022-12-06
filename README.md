@@ -1,5 +1,7 @@
 # Test 2 Document:
-[Link to the Google document](https://docs.google.com/document/d/1781U41ydMz_0HRzeQnuIUyZ-tOFjqX5Bccd6j6syKh4/edit?usp=sharing)
+[TEST 2 RESUBMISSION DOC](https://docs.google.com/document/d/1781U41ydMz_0HRzeQnuIUyZ-tOFjqX5Bccd6j6syKh4/edit?usp=sharing)
+
+[Link to the Google document](https://docs.google.com/document/d/1s6JLctfnJl_DpSqcduSnPm9vLjd5eSziy10ILEjnQ80/edit?usp=sharing)
 
 # Development Reference:
 
