@@ -89,7 +89,7 @@ class Parser:
     
     def check_bool_expr(self):
         if not match(self.current_token, LPAREN):
-                    self.syntax_error.append(f"{self.current_token.value}: expect a '('")
+            self.syntax_error.append(f"{self.current_token.value}: expect a '('")
         else:
             bool_expr_st = []
             bool_expr_st.append(RPAREN) # need to look for a right parenthese ')'
@@ -133,12 +133,13 @@ class Parser:
             self.syntax_error.append(f"{self.current_token.value}: the program is supposed to start with 'BEGIN' and end with 'END'")
         self.advance()
         self.execute_stm_list(end='END', scope='global')
-        print(self.syntax_error)
-        print(self.bra_stack)
+        #print(self.bra_stack)
+        print("List of Syntax Error: " + str(self.syntax_error))
     
+    # Execute the code block until met an ending token (param: end)
     def execute_stm_list(self, end, scope=None):
         while self.current_token.value != end:
-            print(self.current_token)
+            #print(self.current_token)
             
             if match(self.current_token, end):
                 if end == RCBRACKET:
@@ -165,8 +166,7 @@ class Parser:
                     else: 
                         # Register the declared variable into the symbol table
                         self.symbol_table[self.current_token] = variable(self.current_token.value, var_datatype.value)
-                        Token1 = self.current_token
-                        print(self.symbol_table)
+                        #print(self.symbol_table)
                         self.advance()
             
             # Initialization or Assign
@@ -200,7 +200,7 @@ class Parser:
                         
             # Checking grammar rule for repeatif loop
             if match(self.current_token, KEYWORD, 'repeatif'):
-                print("loooooooooooooooooooooooooooooooooooooooooooooooooooop")
+                #print("loooooooooooooooooooooooooooooooooooooooooooooooooooop")
                 self.advance()
                 self.check_bool_expr()
                 if (not match(self.current_token, LCBRACKET)):
@@ -208,7 +208,7 @@ class Parser:
                 
             # Checking grammar rule for iffy/ew selection statement   
             if match(self.current_token, KEYWORD, 'iffy'):
-                print("ifffffffffffffffffffffffffffffffffffffffffffffffffffffffy") 
+                #print("ifffffffffffffffffffffffffffffffffffffffffffffffffffffffy") 
                 self.iffyew_stack.append(self.current_token)
                 self.advance()
                 self.check_bool_expr()
@@ -246,7 +246,7 @@ if __name__ == "__main__":
     #close file
     text_file.close()
     print(data)
-    lexer = LexicalAnalyzer(data)
+    lexer = Lexer(data)
     tokens = lexer.tokenize()
     print(tokens)
     parser = Parser(tokens)

@@ -24,20 +24,26 @@ twob:   stores 2 bytes integer
 fob:    stores 4 bytes integer
 ateb:   stores 8 bytes integer
 
+Character in number literal to express what they are in bytes:
+(number_literal).o :    number will be stored in One byte 
+(number_literal).t :    number will be stored in Two bytes
+(number_literal).f :    number will be stored in Fo (4) bytes
+(number_literal).a :    number will be stored in Ate (8) bytes
+
 Keyword:
 - loop: 
-    repeatif <condition> {
+    repeatif (bool_expr) {
         code...;
     }
 - selection statements:
-    iffy <condition> {
+    iffy (bool_expr) {
         code...;
     } ew {
         code...;
     }
 - data type declarations:
-    <type> <variable_name>;
-- BEGIN, END, and, or, not
+    (data type) (variable name);
+- BEGIN, END
 
 Order or operation (high->low)
 - atom: Identify literal integer type, LITERAL_INT_(oneb|twob|fob|ateb), Identifier
