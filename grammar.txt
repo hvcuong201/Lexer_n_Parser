@@ -1,33 +1,33 @@
-<program> -> BEGIN <stmt_list> END
+<program>           ::= BEGIN <stmt_list> 
 
-<stmt_list> -> <stmt>
+<stmt_list>         ::= <stmt> <stmt_list> | END
 
-<stmt> -> <declaration> | <assignment> | <cond_stmt> | <repeatif>
+<stmt>              ::= <declaration> | <assignment> | <cond> | <repeatif>
 
-<declaration> - <type> identifier;
-<type> - oneb | twob | fob | ateb
+<declaration>       ::= <type> identifier `;`
+<type>              ::= oneb | twob | fob | ateb
 
-<assignment> - identifier ASSIGN <expr>;
-<expr> - <term> ((PLUS|MINUS) <term>)*
-<term> - <factor> ((MUL|DIV|MOD) <factor>)*
-<factor> - (<expr>) | literal | identifier
+<assignment>        ::= identifier `=` <expr> `;`
 
-<cond_stmt> -> iffy <bool_expr> { <stmt> } ew { <stmt> }
-<bool_expr> -> <value> <comp_operator> <value>
-<value> -> literal | identifier
-<comp_operator> LESS, LESSEQ, GREATER, GREATEREQ, EQUAL, NOTEQ
+<cond>              ::= iffy <bool_expr> `{` <codeblock> ew `{` <codeblock>
+                    | iffy <bool_expr> `{` <codeblock>
+<repeatif>          ::= repeatif <bool_expr> ‘{‘ <codeblock>
+<codeblock>         ::= <stmt> <codeblock> | `}` 
 
-<repeatif> -> repeatif <bool_expr> { <stmt> } 
+<bool_expr>         ::= `(` <value> <comparison_op> <value> `)`
+<comparison_op>     ::= `<` | `<=’ | `>’ | `>=’ | `==’ | `|=` 
 
+### Enforce rule of non BODMAS
+<expr>              ::= <sum>
+<sum>               ::= <mod> `+` <sum> | <mod>
+<mod>               ::= <div> `%` <mod> |     <div>
+<div>               ::= <mul> `/` <div> | <mul>
+<mul>               ::= <sub> `*` <mul> | <sub>
+<sub>               ::= <factor> `-` <sub> | <factor>
+<factor>            ::= `(` <expr> `)` | <value>
 
-###Pairwise Disjointness Test:
-FIRST (PROGRAM) - BEGIN
-FIRST (STMT_LIST) - {oneb, twob, fob, ateb}, cond, identifier, repeatif
-FIRST (STMT) - {oneb, twob, fob, ateb}, cond, identifier, repeatif, iffy
-FIRST (DECLARATION) - {oneb, twob, fob, ateb}
-FIRST (COND_STMT) - {literal, identifier}
-FIRST (REPEATIF) - {literal, identifier}
-FIRST (ASSIGNMENT) - (, literal, identifier
-FIRST (EXPR) - (, literal, identifier
-FIRST (TERM) - (, literal, identifier
-FIRST (FACTOR) - (
+<value>             ::= LITERAL_INT_oneb 
+                    | LITERAL_INT_twob 
+                    | LITERAL_INT_fob 
+                    | LITERAL_INT_ateb
+                    | identifier
