@@ -87,7 +87,7 @@ iffy (<bool_expr>) {
 <assignment> 	::= identifier `=` <expr> `;`
 
 <cond> 			::= iffy <bool_expr> `{` <codeblock> ew `{` <codeblock>
-                | iffy <bool_expr> `{` <codeblock>
+                    | iffy <bool_expr> `{` <codeblock>
 <repeatif> 		::= repeatif <bool_expr> ‘{‘ <codeblock>
 <codeblock>  	::= <stmt> <codeblock> | `}`
 <bool_expr>  	::= `(` <value> <comparison_op> <value> `)`
@@ -103,10 +103,10 @@ iffy (<bool_expr>) {
 <sub>  			::= <factor> `-` <sub> | <factor>
 <factor> 		::= `(` <expr> `)` | <value>
 <value>  		::= LITERAL_INT_oneb
-				| LITERAL_INT_twob
-				| LITERAL_INT_fob
-				| LITERAL_INT_ateb
-				| identifier
+			| LITERAL_INT_twob
+			| LITERAL_INT_fob
+			| LITERAL_INT_ateb
+			| identifier
 ```
 @author: hvcuong201
 
