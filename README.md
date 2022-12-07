@@ -1,6 +1,8 @@
 # Test 2 Document:
 [TEST 2 RESUBMISSION DOC](https://docs.google.com/document/d/1781U41ydMz_0HRzeQnuIUyZ-tOFjqX5Bccd6j6syKh4/edit?usp=sharing)
 
+LR(1) Parse Table for my language can be found at CuongHoang_LR(1)_Parser_Table.pdf
+
 [Link to the Google document](https://docs.google.com/document/d/1s6JLctfnJl_DpSqcduSnPm9vLjd5eSziy10ILEjnQ80/edit?usp=sharing)
 
 # Development Reference:
@@ -82,9 +84,10 @@ iffy (<bool_expr>) {
 <declaration>  	::= <type> identifier `;`
 <type> 			::= oneb | twob | fob | ateb
 
-<assignment> 	::= identifier `=` <expr>
+<assignment> 	::= identifier `=` <expr> `;`
 
 <cond> 			::= iffy <bool_expr> `{` <codeblock> ew `{` <codeblock>
+                | iffy <bool_expr> `{` <codeblock>
 <repeatif> 		::= repeatif <bool_expr> ‘{‘ <codeblock>
 <codeblock>  	::= <stmt> <codeblock> | `}`
 <bool_expr>  	::= `(` <value> <comparison_op> <value> `)`
