@@ -9,7 +9,7 @@ BEGIN
             1num = 1num @ 1;            
         }
 
-        iffy (thisissum <= 100) {       
+        iffy (thisissum != 100) {       
             thisissum = thisissum + 1num;
         }
     }
