@@ -116,7 +116,6 @@ class Lexer:
         while self.current_char != None and self.current_char.isdigit():
             number += self.current_char
             self.advance()
-        print(f"number {number} and intnumber {int(number)}")
         return int(number) if number != '0' else 0
     
     def create_identifier_token(self):
