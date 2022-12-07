@@ -49,7 +49,7 @@ class Token:
     
     # representation method to return a string with the token's value and type
     def __repr__(self) -> str:
-        if self.value:
+        if self.value or self.value == 0:
             return f"{self.type}:{self.value}"
         return f"{self.type}"
     
@@ -116,7 +116,8 @@ class Lexer:
         while self.current_char != None and self.current_char.isdigit():
             number += self.current_char
             self.advance()
-        return int(number)
+        print(f"number {number} and intnumber {int(number)}")
+        return int(number) if number != '0' else 0
     
     def create_identifier_token(self):
         string = ''
