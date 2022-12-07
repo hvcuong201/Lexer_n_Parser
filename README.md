@@ -4,55 +4,106 @@
 [Link to the Google document](https://docs.google.com/document/d/1s6JLctfnJl_DpSqcduSnPm9vLjd5eSziy10ILEjnQ80/edit?usp=sharing)
 
 # Development Reference:
+### Operations
+| Name| Symbol |
+|--|--|
+| addition | + |
+| subtraction | - |
+| multiplication| * |
+| division| / |
+| modulo| % |
+| less than | < |
+| greater than | > |
+| less or equal | <= |
+| greater or equal | >= |
+| not equal to | \|= |
+| assignment | = |
+| parenthese | ( ) |
+| curly bracket | { } |
 
-Operations
-addition: +
-subtraction: -
-multiplication: *
-division: /
-modulo: %
-less than: <
-greater than: >
-less or equal: <=
-greater or equal: >=
-equal to: ==
-not equal to: |=  
-assignment: =
-parenthese: ()
+### Primitive data types: 
+| Name | Description |
+|--|--|
+| oneb | stores 1 byte integer |
+| twob | stores 2 bytes integer |
+| fob | stores 4 bytes integer |
+| ateb | stores 8 bytes integer |
 
-Primitive data types:
-oneb:   stores 1 byte integer
-twob:   stores 2 bytes integer
-fob:    stores 4 bytes integer
-ateb:   stores 8 bytes integer
+### Character in number literal to express what they are in bytes:
 
-Character in number literal to express what they are in bytes:
-(number_literal).o :    number will be stored in One byte 
-(number_literal).t :    number will be stored in Two bytes
-(number_literal).f :    number will be stored in Fo (4) bytes
-(number_literal).a :    number will be stored in Ate (8) bytes
+| Format | Description |
+|--|--|
+|(number_literal).o | number will be stored in One byte |
+|(number_literal).t | number will be stored in Two bytes |
+|(number_literal).f | number will be stored in Fo (4) bytes |
+|(number_literal).a | number will be stored in Ate (8) bytes |
 
-Keyword:
-- loop: 
-    repeatif (bool_expr) {
-        code...;
-    }
-- selection statements:
-    iffy (bool_expr) {
-        code...;
-    } ew {
-        code...;
-    }
-- data type declarations:
-    (data type) (variable name);
-- BEGIN, END
+### Keyword:
+- Clear beginning and end:
+```
+BEGIN:
+	<statement_list>
+END
+```
+- Seperate multiple statements using a semicolon 
+```
+<statement>;
+```
+- Loop:
+```
+repeatif (<bool_expr>) {
+	<codeblock>
+}
+```
+- Selection Statement:
+```
+iffy (<bool_expr>) {
+	<codeblock>
+} ew {
+	<codeblock>
+}
+```
+- Variable Declarations:
+```
+<data type> <identifier>;
+```
+- Variable Assignment:
+```
+<identifier> = <value>;
+```
+  
+## Grammar
 
-Order or operation (high->low)
-- atom: Identify literal integer type, LITERAL_INT_(oneb|twob|fob|ateb), Identifier
-- atom: left and right parentheses
-- factor: (PLUS|MINUS) factor
-- term: factor ((MUL|DIV|MOD) factor)*
-- arith-expr: term ((PLUS|MINUS) term)*
-- comp-expr: arith-expr ((LESS|LESSEQ|GREATER|GREATEREQ|EQUAL|NOTEQ) arith-expr)*
-- expr: not comp-expr, comp-expr ((KEYWORD: AND|KEYWORD: OR) comp-expr)*
-- expr: declaration and assignment
+```
+<program> 		::= BEGIN <stmt_list>
+<stmt_list> 	::= <stmt> <stmt_list> | END
+<stmt>  		::= <declaration> | <assignment> | <cond> | <repeatif>
+
+<declaration>  	::= <type> identifier `;`
+<type> 			::= oneb | twob | fob | ateb
+
+<assignment> 	::= identifier `=` <expr>
+
+<cond> 			::= iffy <bool_expr> `{` <codeblock> ew `{` <codeblock>
+<repeatif> 		::= repeatif <bool_expr> ‘{‘ <codeblock>
+<codeblock>  	::= <stmt> <codeblock> | `}`
+<bool_expr>  	::= `(` <value> <comparison_op> <value> `)`
+
+<comparison_op> ::= `<` | `<=’ | `>’ | `>=’ | `==’ | `|=`
+
+### Enforce rule of non BODMAS
+<expr>  		::= <sum>
+<sum>  			::= <mod> `+` <sum> | <mod>
+<mod>  			::= <div> `%` <mod> |  <div>
+<div>  			::= <mul> `/` <div> | <mul>
+<mul>  			::= <sub> `*` <mul> | <sub>
+<sub>  			::= <factor> `-` <sub> | <factor>
+<factor> 		::= `(` <expr> `)` | <value>
+<value>  		::= LITERAL_INT_oneb
+				| LITERAL_INT_twob
+				| LITERAL_INT_fob
+				| LITERAL_INT_ateb
+				| identifier
+```
+@author: hvcuong201
+
