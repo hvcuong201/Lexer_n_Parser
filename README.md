@@ -87,7 +87,7 @@ iffy (<bool_expr>) {
 <assignment> 	::= identifier `=` <expr> `;`
 
 <cond> 			::= iffy <bool_expr> `{` <codeblock> ew `{` <codeblock>
-                    | iffy <bool_expr> `{` <codeblock>
+                        | iffy <bool_expr> `{` <codeblock>
 <repeatif> 		::= repeatif <bool_expr> ‘{‘ <codeblock>
 <codeblock>  	::= <stmt> <codeblock> | `}`
 <bool_expr>  	::= `(` <value> <comparison_op> <value> `)`
