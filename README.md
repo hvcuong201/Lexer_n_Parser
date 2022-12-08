@@ -90,7 +90,7 @@ iffy (<bool_expr>) {
                         | iffy <bool_expr> `{` <codeblock>
 <repeatif> 		::= repeatif <bool_expr> ‘{‘ <codeblock>
 <codeblock>  	::= <stmt> <codeblock> | `}`
-<bool_expr>  	::= `(` <value> <comparison_op> <value> `)`
+<bool_expr>  	::= `(` <expr> <comparison_op> <expr> `)`
 
 <comparison_op> ::= `<` | `<=’ | `>’ | `>=’ | `==’ | `|=`
 
